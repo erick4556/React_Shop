@@ -1,4 +1,13 @@
 import { ActionTypes } from "../contants/action-types";
+import axios from "../../apis/storeApi";
+
+export const fetchProducts = () => {
+  return async (dispatch) => {
+    const response = await axios.get("/products");
+    console.log(response);
+    dispatch({ type: ActionTypes.FETCH_PRODUCTS, payload: response.data });
+  };
+};
 
 export const setProducts = (products) => ({
   type: ActionTypes.SET_PRODUCTS,

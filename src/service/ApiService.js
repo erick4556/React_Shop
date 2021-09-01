@@ -6,7 +6,7 @@ class ApiService {
   };
 
   getProductDetails = async (id) => {
-    return await axios.get(`https://fakestoreapi.com/products/${id}`);
+    return await axios.get(`/products/${id}`);
   };
 }
 
