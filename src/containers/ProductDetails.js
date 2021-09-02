@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectedProduct,
+  fetchProductId,
   removeSelectedProduct,
 } from "../redux/actions/productActions";
 import Api from "../service/ApiService";
@@ -23,8 +24,9 @@ const ProductDetails = () => {
       });
     dispatch(selectedProduct(response.data)); */
     try {
-      const response = await Api.getProductDetails(id);
-      dispatch(selectedProduct(response.data));
+      /* const response = await Api.getProductDetails(id);
+      dispatch(selectedProduct(response.data)); */
+      dispatch(fetchProductId(id));
     } catch (error) {
       console.log(error);
     }

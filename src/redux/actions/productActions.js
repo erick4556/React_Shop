@@ -9,6 +9,14 @@ export const fetchProducts = () => {
   };
 };
 
+export const fetchProductId = (id) => {
+  return async (dispatch) => {
+    const response = await axios.get("/products/" + id);
+    console.log(response);
+    dispatch({ type: ActionTypes.SELECTED_PRODUCT, payload: response.data });
+  };
+};
+
 export const setProducts = (products) => ({
   type: ActionTypes.SET_PRODUCTS,
   payload: products,
